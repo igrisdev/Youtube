@@ -1,22 +1,32 @@
 ---
 import ContainerSection from "./ContainerSection.astro";
 
-import ImageSection2 from "/public/Image-4.png";
-import ImageOnePerson from "/public/Image-5.png";
+import ImageSection3 from "/public/Image-6.png";
+import ImageEarthAndOnePerson from "/public/Image-7.png";
 ---
 
 <ContainerSection>
   <img
-    src={ImageSection2.src}
+    src={ImageSection3.src}
     alt="hola"
     loading="eager"
     class="section_image_bg w-full h-full object-cover -z-10 absolute"
   />
 
   <section
-    class="section_2_text max-w-8xl grid grid-cols-2 pt-20 mx-auto h-full z-50"
+    class="section_3_text max-w-8xl grid grid-cols-2 pt-20 mx-auto h-full z-50"
   >
-    <div class="flex flex-col justify-start pt-40 gap-2">
+    <div class="flex flex-col justify-start pt-40 gap-2 relative">
+      <span> Get</span>
+
+      <h2 class="section_3_title text-8xl font-bold">
+        Explore the <br />unfamiliar
+      </h2>
+    </div>
+
+    <div
+      class="flex flex-col gap-2 items-end justify-end pb-65 pr-10 text-left"
+    >
       <p>
         Step boldly forward, <br />
         explore hidden paths.
@@ -31,16 +41,12 @@ import ImageOnePerson from "/public/Image-5.png";
         <a href="/" class="border-b">Discover More</a>
       </div>
     </div>
-
-    <div class="flex items-end justify-end pb-30 pr-10">
-      <h2 class="section_2_title text-8xl font-bold">Into the <br />unseen</h2>
-    </div>
   </section>
 
   <img
-    src={ImageOnePerson.src}
+    src={ImageEarthAndOnePerson.src}
     alt="Image Earth With People"
-    class="section_2_one_people absolute bottom-0 w-full object-cover lg:translate-y-40 -z-10"
+    class="section_3_one_people absolute bottom-0 w-full object-cover -z-10"
   />
 </ContainerSection>
 
@@ -50,7 +56,7 @@ import ImageOnePerson from "/public/Image-5.png";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const tl_section_2 = gsap.timeline({
+  const tl_section_3 = gsap.timeline({
     scrollTrigger: {
       trigger: "#container-sections",
       start: "top 60%",
@@ -66,8 +72,8 @@ import ImageOnePerson from "/public/Image-5.png";
 
   // --- Animaciones de ENTRADA ---
 
-  tl_section_2.from(
-    ".section_2_title, .section_2_one_people, .section_2_text",
+  tl_section_3.from(
+    ".section_3_title, .section_3_one_people, .section_3_text",
     {
       y: "100%",
       duration: 1.2,

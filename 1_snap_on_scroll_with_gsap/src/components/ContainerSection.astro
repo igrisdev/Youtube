@@ -1,11 +1,7 @@
 ---
-interface Props {
-  id?: string;
-}
 
-const { id } = Astro.props;
 ---
 
-<section class="snap-center h-full overflow-hidden relative" id={id}>
+<section class="snap-center h-full overflow-hidden relative">
   <slot />
 </section>

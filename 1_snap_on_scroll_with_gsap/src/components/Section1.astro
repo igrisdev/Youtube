@@ -11,7 +11,7 @@ import ImageEarthWithPeople from "/public/Image-3.png";
     src={ImageSection1.src}
     alt="hola"
     loading="eager"
-    class="section_1_image_bg w-full h-full object-cover -z-10 absolute"
+    class="section_image_bg w-full h-full object-cover -z-10 absolute"
   />
 
   <h2 class="section_1_title uppercase font-bold text-8xl text-center mt-40">
@@ -39,7 +39,7 @@ import ImageEarthWithPeople from "/public/Image-3.png";
 
   const tl_section_1 = gsap.timeline({
     scrollTrigger: {
-      trigger: ".section_1_image_bg",
+      trigger: "#container-sections",
       start: "top 60%",
       end: "bottom top",
       // toggleActions: "onEnter onLeave onEnterBack onLeaveBack"
@@ -96,7 +96,7 @@ import ImageEarthWithPeople from "/public/Image-3.png";
   );
 
   tl_section_1.to(
-    ".section_1_image_bg",
+    ".section_image_bg",
     {
       scale: 1.1,
       rotation: 0.01,
