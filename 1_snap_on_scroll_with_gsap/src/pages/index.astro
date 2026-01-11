@@ -5,9 +5,9 @@ import "remixicon/fonts/remixicon.css";
 import Layout from "../layouts/Layout.astro";
 import ContainerSection from "../components/ContainerSection.astro";
 
-import ImageSection2 from "/public/Image-4.png";
 import ImageSection3 from "/public/Image-6.png";
 import Section1 from "../components/Section1.astro";
+import Section2 from "../components/Section2.astro";
 ---
 
 <Layout>
@@ -68,9 +68,14 @@ import Section1 from "../components/Section1.astro";
         <a href="/"><i class="ri-reddit-line ri-xl"></i></a>
       </li>
     </ul>
+
+    <div>
+      <a href="/" class="border-b">Contactar</a>
+    </div>
   </div>
 
   <Section1 />
-  <ContainerSection image={ImageSection2.src}> section 1 </ContainerSection>
-  <ContainerSection image={ImageSection3.src}> section 1 </ContainerSection>
+  <Section2 />
+
+  <ContainerSection> section 1 </ContainerSection>
 </Layout>

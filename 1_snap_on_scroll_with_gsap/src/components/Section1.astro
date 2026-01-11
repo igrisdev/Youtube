@@ -14,19 +14,16 @@ import ImageEarthWithPeople from "/public/Image-3.png";
     class="section_1_image_bg w-full h-full object-cover -z-10 absolute"
   />
 
-  <!-- Title      -->
   <h2 class="section_1_title uppercase font-bold text-8xl text-center mt-40">
     The Unknown
   </h2>
 
-  <!-- Image Moon  -->
   <img
     src={ImageMoon.src}
     alt="Image Moon"
     class="section_1_moon absolute hue-rotate-30 top-1/2 -translate-y-1/2 left-1/2 object-cover -translate-x-1/2 h-140"
   />
 
-  <!-- Image Earth With People    -->
   <img
     src={ImageEarthWithPeople.src}
     alt="Image Earth With People"
@@ -34,20 +31,27 @@ import ImageEarthWithPeople from "/public/Image-3.png";
   />
 </ContainerSection>
 
-<!-- <style>
-  .section_1_moon,
-  .section_1_title {
-    will-change: transform;
-
-    backface-visibility: hidden;
-    -webkit-font-smoothing: antialiased; /* Si es texto */
-  }
-</style> -->
-
 <script>
   import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  export const tl_section_1 = gsap.timeline();
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl_section_1 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section_1_image_bg",
+      start: "top 60%",
+      end: "bottom top",
+      // toggleActions: "onEnter onLeave onEnterBack onLeaveBack"
+      // play: Arranca la animación
+      // pause: Si sales de la sección, se pausa (ahorra recursos)
+      // resume: Si vuelves a entrar, sigue donde iba
+      // pause: Si te vas para arriba, se pausa de nuevo
+      toggleActions: "play pause resume pause",
+    },
+  });
+
+  // --- Animaciones de ENTRADA ---
 
   tl_section_1.from(".section_1_earth_with_people", {
     y: "100%",
@@ -66,8 +70,11 @@ import ImageEarthWithPeople from "/public/Image-3.png";
     "<"
   );
 
+  // --- Animaciones de LOOP  ---
+
   tl_section_1.to(".section_1_moon", {
     scale: 1.2,
+    rotation: 0.01,
     duration: 4,
     ease: "sine.inOut",
     repeat: -1,
@@ -79,6 +86,7 @@ import ImageEarthWithPeople from "/public/Image-3.png";
     {
       y: "-30%",
       scale: 1.1,
+      rotation: 0.01,
       duration: 4,
       ease: "sine.inOut",
       repeat: -1,
@@ -91,6 +99,7 @@ import ImageEarthWithPeople from "/public/Image-3.png";
     ".section_1_image_bg",
     {
       scale: 1.1,
+      rotation: 0.01,
       duration: 4,
       ease: "power1.inOut",
       repeat: -1,
