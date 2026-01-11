@@ -1,0 +1,101 @@
+---
+import ContainerSection from "./ContainerSection.astro";
+
+import ImageSection1 from "/public/Image-1.png";
+import ImageMoon from "/public/Image-2.png";
+import ImageEarthWithPeople from "/public/Image-3.png";
+---
+
+<ContainerSection>
+  <img
+    src={ImageSection1.src}
+    alt="hola"
+    loading="eager"
+    class="section_1_image_bg w-full h-full object-cover -z-10 absolute"
+  />
+
+  <!-- Title      -->
+  <h2 class="section_1_title uppercase font-bold text-8xl text-center mt-40">
+    The Unknown
+  </h2>
+
+  <!-- Image Moon  -->
+  <img
+    src={ImageMoon.src}
+    alt="Image Moon"
+    class="section_1_moon absolute hue-rotate-30 top-1/2 -translate-y-1/2 left-1/2 object-cover -translate-x-1/2 h-140"
+  />
+
+  <!-- Image Earth With People    -->
+  <img
+    src={ImageEarthWithPeople.src}
+    alt="Image Earth With People"
+    class="section_1_earth_with_people absolute bottom-0 w-full object-cover lg:translate-y-20"
+  />
+</ContainerSection>
+
+<!-- <style>
+  .section_1_moon,
+  .section_1_title {
+    will-change: transform;
+
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased; /* Si es texto */
+  }
+</style> -->
+
+<script>
+  import { gsap } from "gsap";
+
+  export const tl_section_1 = gsap.timeline();
+
+  tl_section_1.from(".section_1_earth_with_people", {
+    y: "100%",
+    duration: 1,
+    ease: "power1.inOut",
+  });
+
+  tl_section_1.from(
+    ".section_1_title",
+    {
+      y: "20%",
+      duration: 1,
+      opacity: 0,
+      ease: "power1.inOut",
+    },
+    "<"
+  );
+
+  tl_section_1.to(".section_1_moon", {
+    scale: 1.2,
+    duration: 4,
+    ease: "sine.inOut",
+    repeat: -1,
+    yoyo: true,
+  });
+
+  tl_section_1.to(
+    ".section_1_title",
+    {
+      y: "-30%",
+      scale: 1.1,
+      duration: 4,
+      ease: "sine.inOut",
+      repeat: -1,
+      yoyo: true,
+    },
+    "<"
+  );
+
+  tl_section_1.to(
+    ".section_1_image_bg",
+    {
+      scale: 1.1,
+      duration: 4,
+      ease: "power1.inOut",
+      repeat: -1,
+      yoyo: true,
+    },
+    "<"
+  );
+</script>

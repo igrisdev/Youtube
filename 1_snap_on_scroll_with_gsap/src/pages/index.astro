@@ -1,11 +1,76 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import "remixicon/fonts/remixicon.css";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import ContainerSection from "../components/ContainerSection.astro";
+
+import ImageSection2 from "/public/Image-4.png";
+import ImageSection3 from "/public/Image-6.png";
+import Section1 from "../components/Section1.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <!-- Navbar  -->
+  <div
+    class="fixed z-50 max-w-8xl w-full right-0 left-1/2 -translate-x-1/2 flex justify-between h-20 items-center font-medium"
+  >
+    <div>
+      <h1>Into The Unknown</h1>
+    </div>
+
+    <ul class="flex gap-4">
+      <li>
+        <a href="/"> Hero 1 </a>
+      </li>
+      <li>
+        <a href="/"> Hero 2 </a>
+      </li>
+      <li>
+        <a href="/"> Hero 3 </a>
+      </li>
+      <li>
+        <a href="/">Hero 4</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Text Scroll Down Left -->
+
+  <div class="fixed z-50 top-1/2 left-10 -rotate-90 text-lg font-light">
+    <p>Scroll Down</p>
+  </div>
+
+  <div class="fixed z-50 top-1/2 right-10 -rotate-90 text-lg font-light">
+    <p>Scroll Down</p>
+  </div>
+
+  <!-- Social Media -->
+
+  <div
+    class="fixed z-50 max-w-8xl bottom-0 w-full right-0 left-1/2 -translate-x-1/2 flex justify-between h-20 items-center font-medium"
+  >
+    <ul class="flex gap-8">
+      <li>
+        <a href="/">
+          <i class="ri-instagram-line ri-xl"></i>
+        </a>
+      </li>
+      <li>
+        <a href="/">
+          <i class="ri-threads-line ri-xl"></i>
+        </a>
+      </li>
+      <li>
+        <a href="/"> <i class="ri-facebook-fill ri-xl"></i> </a>
+      </li>
+      <li>
+        <a href="/"><i class="ri-reddit-line ri-xl"></i></a>
+      </li>
+    </ul>
+  </div>
+
+  <Section1 />
+  <ContainerSection image={ImageSection2.src}> section 1 </ContainerSection>
+  <ContainerSection image={ImageSection3.src}> section 1 </ContainerSection>
 </Layout>
