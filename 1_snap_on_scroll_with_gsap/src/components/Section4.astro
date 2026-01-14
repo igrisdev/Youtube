@@ -1,0 +1,90 @@
+---
+import ContainerSection from "./ContainerSection.astro";
+
+import ImageSection from "/public/Image-9.png";
+import ImagePeople from "/public/Image-8.png";
+---
+
+<ContainerSection id="section_4">
+  <img
+    src={ImageSection.src}
+    alt="hola"
+    loading="eager"
+    class="w-full h-full object-cover -z-10 absolute"
+  />
+
+  <section
+    class="section_4_text max-w-8xl grid mx-auto h-full z-50 place-content-center text-center gap-8"
+  >
+    <div class="flex flex-col justify-start gap-2 relative">
+      <h2 class="section_4_title text-8xl font-bold">
+        Into the <br />mystery
+      </h2>
+    </div>
+
+    <div>
+      <p>
+        Step boldly forward, <br />
+        explore hidden paths.
+      </p>
+
+      <p>
+        Mysteries unfold, bringing insight, <br />
+        sparking curiosity and wonder.
+      </p>
+
+      <div class="mt-14">
+        <a href="/" class="border-b">Discover More</a>
+      </div>
+    </div>
+  </section>
+
+  <img
+    src={ImagePeople.src}
+    alt="Image Earth With People"
+    class="section_4_people absolute bottom-0 w-full object-cover -z-10"
+  />
+</ContainerSection>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl_section_4 = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#section_4",
+      scroller: "#container-sections",
+      start: "top 60%",
+      end: "bottom top",
+      toggleActions: "play pause restart reset",
+    },
+  });
+
+  // --- Animaciones de ENTRADA ---
+
+  tl_section_4.from(".section_4_title", {
+    y: "100%",
+    opacity: 0,
+    duration: 1,
+    ease: "power1.inOut",
+  });
+
+  tl_section_4.fromTo(
+    ".section_4_people",
+    {
+      y: "15%",
+      x: "0%",
+      ease: "power1.inOut",
+    },
+    {
+      y: "20%",
+      x: "5%",
+      duration: 6,
+      ease: "power1.inOut",
+      repeat: -1,
+      yoyo: true,
+    }
+  );
+</script>
